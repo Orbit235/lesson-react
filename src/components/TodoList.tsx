@@ -1,3 +1,4 @@
+import { Flex } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import { TodoApi } from "../api/todoApi"
 import TodoItem from "./TodoItem"
@@ -6,25 +7,33 @@ const TodoList = () => {
     const loadData = () => {
         TodoApi.getTodos()
             .then((response) => {
-                    console.log(response)
-                    setTodos(response.data)
+                    console.log(response.data)
+                    setTodos(response.data.map((item) => ({...item, isDeleted: false})))
             })
             .catch ((err) => {console.log(err);
             })
     }
 
+const deleteItem = (i: number) => {
+    console.log ('deleting', i);
+    setTodos(todos.map ((item, idx) => ({...item,
+        isDeleted: idx == i ? true : item.isDeleted})))
+}
+
+
+
 useEffect(() => {
     loadData()
 }, [])
 
-    return <div>
-        <TodoItem serial={1} todo = {{
-            userId: 1,
-            id: 1,
-            title: "delectus aut autem",
-            completed: true
-        }} />    
-        </div>
-}
-
+    return (
+    <Flex flexDirection= {'column'} gap={5}>
+        {
+            todos.map((item, idx) => {
+                return <TodoItem todo={item} serial={idx+1} key={idx} deleteItem={() => deleteItem(idx)}/>
+            })
+        }
+       </Flex>
+)
+    }
 export default TodoList
