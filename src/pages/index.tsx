@@ -12,10 +12,10 @@ import TodoList from '../components/TodoList'
 const Index = () => (
   <Container height="100vh">
     <Hero title='Список дел'/>
-    <Main>
+  
 <TodoList />
      
-    </Main>
+   
 
     <DarkModeSwitch />
     <Footer>
