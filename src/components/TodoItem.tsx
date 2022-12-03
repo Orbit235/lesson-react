@@ -1,18 +1,13 @@
 import { DeleteIcon } from "@chakra-ui/icons";
 import { Center, Checkbox, Flex, IconButton, Text } from "@chakra-ui/react";
 import { FC, useState } from "react";
+import { Todo } from "../types/todo";
 
 
 interface TodoItemProps {
     serial: number
     deleteItem: any
-    todo: {
-        userId: number
-        id: number
-        title: string
-        completed: boolean
-        isDeleted: boolean
-    }
+    todo: Todo
 }
 const TodoItem: FC <TodoItemProps> = (props) => {
     const [complete, setComplete] = useState(props.todo.completed)
