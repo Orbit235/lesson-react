@@ -1,0 +1,29 @@
+{
+  "todos": [
+    {
+      "userId": 1,
+      "id": 1,
+      "title": "Купить хлеб",
+      "completed": false
+    },
+    {
+      "userId": 1,
+      "id": 2,
+      "title": "Купить велосипед",
+      "completed": false
+    },
+    {
+      "userId": 1,
+      "id": 3,
+      "title": "Сходить в баню",
+      "completed": false
+    },
+    {
+      "userId": 1,
+      "title": "asdasd",
+      "completed": false,
+      "isDeleted": false,
+      "id": 4
+    }
+  ]
+}
