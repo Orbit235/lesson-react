@@ -6,17 +6,20 @@ import {
   Button,
   InputGroup,
   InputRightElement,
+  Box,
 } from '@chakra-ui/react'
+import { observer } from 'mobx-react-lite'
 import { useEffect, useState } from 'react'
 import { TodoApi } from '../api/todoApi'
+import UserStore from '../store/UserStore'
 import { Todo } from '../types/todo'
 import TodoItem from './TodoItem'
 const TodoList = () => {
   const [todos, setTodos] = useState([] as Todo[])
   const [newTodo, setNewTodo] = useState('')
-
+  const userId = UserStore.user?.user?.id
   const loadData = () => {
-    TodoApi.getTodos()
+    TodoApi.getTodos(userId)
       .then((response) => {
         console.log(response.data)
         setTodos(response.data.map((item) => ({ ...item, isDeleted: false })))
@@ -54,6 +57,10 @@ const TodoList = () => {
     if (todos.length == 0) loadData()
   }, [])
 
+  if (userId == undefined) {
+    return <Box mt={5}>Вы не вошли</Box>
+  }
+
   return (
     <Flex flexDirection={'column'} gap={5}>
       <FormControl>
@@ -70,7 +77,7 @@ const TodoList = () => {
               variant={'ghost'}
               onClick={() => {
                 const newTodoItem: Todo = {
-                  userId: 1,
+                  userId: userId,
                   title: newTodo,
                   completed: false,
                   isDeleted: false,
@@ -98,4 +105,4 @@ const TodoList = () => {
     </Flex>
   )
 }
-export default TodoList
+export default observer(TodoList)

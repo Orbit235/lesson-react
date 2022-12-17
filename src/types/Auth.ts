@@ -1,9 +1,14 @@
+import { string } from 'yup'
+
 export type LoginRequest = {
   email: string
   password: string
 }
 
 export type LoginResponse = {
-  id: number
-  email: string
+  user: { id: number; email: string }
+  aceessToken: string
 }
+
+export type RegisterResponse = LoginResponse
+export type RegisterRequest = LoginRequest

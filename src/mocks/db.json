@@ -1,29 +1,22 @@
 {
-  "todos": [
+  "todos": [],
+  "users": [
     {
-      "userId": 1,
       "id": 1,
-      "title": "Купить хлеб",
-      "completed": false
+      "name": "Alexey",
+      "email": "a@mail.ru",
+      "password": "KF456774"
     },
     {
-      "userId": 1,
       "id": 2,
-      "title": "Купить велосипед",
-      "completed": false
+      "name": "Kirill",
+      "email": "k@mail.ru",
+      "password": "KF456774"
     },
     {
-      "userId": 1,
-      "id": 3,
-      "title": "Сходить в баню",
-      "completed": false
-    },
-    {
-      "userId": 1,
-      "title": "asdasd",
-      "completed": false,
-      "isDeleted": false,
-      "id": 4
+      "email": "b.nnn@mai.ru",
+      "password": "$2a$10$uR8tnAeIiSa7TUCPiLQILuU2BatRvTeOoqfpey7XGcqyjUCH/7H7a",
+      "id": 3
     }
   ]
 }

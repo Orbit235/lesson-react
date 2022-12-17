@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "fake": "json-server --port 5000 --watch src/mocks/db.json",
+    "fake": "json-server --port 5000 --watch src/mocks/db.json -m ./node_modules/json-server-auth",
     "dev": "next",
     "build": "next build",
     "start": "next start"
@@ -15,6 +15,9 @@
     "axios": "^1.2.0",
     "formik": "^2.2.9",
     "framer-motion": "^6.3.0",
+    "json-server-auth": "^2.1.0",
+    "mobx": "^6.7.0",
+    "mobx-react-lite": "^3.4.0",
     "next": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
